@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>변환기</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -13,45 +13,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-	<%
-	
-		// 숫자1, 숫자2, 연산자
-		
-		int number1 = Integer.parseInt(request.getParameter("number1"));
-		int number2 = Integer.parseInt(request.getParameter("number2"));
-		
-		// + , - , X, /
-		// plus minus, multiple, divide
-		String operatorString = request.getParameter("operator");
-		
-		double result = 0;
-		String operator = "";
-		if(operatorString.equals("plus")) {
-			result = number1 + number2;
-			operator = "+";
-		} else if(operatorString.equals("minus")) {
-			result = number1 - number2;
-			operator = "-";
-		} else if(operatorString.equals("multiple")) {
-			result = number1 * number2;
-			operator = "X";
-		} else {
-			result = number1 / (double)number2;
-			operator = "/";
-		}
-
-	%>
-	
 	<div class="container">
+		<h1>길이변환</h1>
 		
-		<h1>계산 결과</h1>
-		<div class="display-4">
-			<%= number1 %> <%=operator %> <%=number2 %> = <span class="text-primary"> <%= result %></span>
-		
-		</div>
+		<form method="post" action="test05_1.jsp">
+			<div class="d-flex">
+				<input type="text" class="form-control col-3" name="length">cm
+			</div>
+			<label>인치 <input type="checkbox" name="units" value="inch"></label>
+			<label>야드 <input type="checkbox" name="units" value="yard"></label>
+			<label>피트 <input type="checkbox" name="units" value="feet"></label>
+			<label>미터 <input type="checkbox" name="units" value="meter"></label>
+			<br>
+			<button type="submit" class="btn btn-success">변환</button>
+		</form>
 	
 	</div>
-	
 
 </body>
 </html>
